@@ -2,9 +2,16 @@
     <div class="todo-tasks">
         <h1>Todo App</h1>
         <div>
-            <div class="item">Items</div>
-            <div class="item">go</div>
-            <div class="item">here</div>
+            <div class="todo-item">
+                <input type="checkbox" id="todo-checkbox-1">
+                <div>
+                    <label for="todo-checkbox-1">
+                        Clean room
+                        <br>
+                    </label>
+                    <label for="todo-checkbox-1" class="todo-description">Throw away junk, do the laundry</label>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -45,8 +52,8 @@
     }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+    /* TODOs BOX */
     .todo-tasks {
         width: 400px;
         margin: 20px auto;
@@ -65,11 +72,23 @@
         padding: 20px;
     }
 
-    .item {
+    /* TODOs-ITEM */
+
+    .todo-item {
         padding: 10px;
+        display: flex;
+        align-items: center;
     }
 
-    .item:not(:last-child) {
-        border-bottom: 1px solid rgba(0,0,0,0.16);
+    .todo-item:not(:last-child) {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.16);
+    }
+
+    .todo-item > input[type=checkbox] {
+        margin-right: 10px;
+    }
+
+    .todo-description {
+        color: darkgrey;
     }
 </style>
