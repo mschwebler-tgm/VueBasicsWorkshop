@@ -12,6 +12,36 @@
 <script>
     export default {
         name: 'Todos',
+        data() {
+            return {
+                todoItems: [
+                    {
+                        id: 1,
+                        title: 'Clean room',
+                        description: 'Throw away junk, do the laundry',
+                        completed: false,
+                    },
+                    {
+                        id: 2,
+                        title: 'Feed the cat',
+                        description: 'Mr. cat wants food',
+                        completed: false,
+                    },
+                    {
+                        id: 3,
+                        title: 'Buy groceries',
+                        description: 'The fridge won\'t fill itself',
+                        completed: false,
+                    },
+                    {
+                        id: 4,
+                        title: 'Get a job',
+                        description: 'I guess all his money, well it isn\'t enough...',
+                        completed: false,
+                    },
+                ],
+            }
+        }
     }
 </script>
 
