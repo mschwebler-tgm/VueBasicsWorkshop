@@ -1,6 +1,6 @@
 <template>
     <div class="todo-item">
-        <input type="checkbox" :id="`todo-checkbox-${item.id}`" v-model="item.completed">
+        <input type="checkbox" :id="`todo-checkbox-${item.id}`">
         <div>
             <label :for="`todo-checkbox-${item.id}`">
                 {{ item.title }}
