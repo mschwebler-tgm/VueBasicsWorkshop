@@ -1,5 +1,5 @@
 <template>
-    <div class="todo-item">
+    <div class="todo-item" :class="{completed: item.completed}">
         <input type="checkbox" :id="`todo-checkbox-${item.id}`" v-model="item.completed">
         <div>
             <label :for="`todo-checkbox-${item.id}`">
@@ -25,6 +25,11 @@
         padding: 10px;
         display: flex;
         align-items: center;
+    }
+
+    .todo-item.completed {
+        background-color: #eaffeb;
+        text-decoration: line-through;
     }
 
     .todo-item:not(:last-child) {
