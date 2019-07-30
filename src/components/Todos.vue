@@ -3,6 +3,8 @@
         <h1>Todo App</h1>
         <div>
             <todo-item :item="todoItem" v-for="todoItem in todoItems" :key="todoItem.id"></todo-item>
+            <button @click="toggleAll(true)">Complete all</button>
+            <button @click="toggleAll(false)">Uncheck all</button>
         </div>
     </div>
 </template>
@@ -41,6 +43,11 @@
                     },
                 ],
             }
+        },
+        methods: {
+            toggleAll(completed) {
+                this.todoItems.forEach(todo => todo.completed = completed);
+            },
         }
     }
 </script>
