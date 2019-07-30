@@ -2,6 +2,7 @@
     <div class="todo-tasks">
         <h1>Todo App</h1>
         <div>
+            <progress :value="completedTodos.length" :max="todoItems.length" style="width: 100%;"></progress>
             <todo-item :item="todoItem" v-for="todoItem in todoItems" :key="todoItem.id"></todo-item>
             <button @click="toggleAll(true)">Complete all</button>
             <button @click="toggleAll(false)">Uncheck all</button>
@@ -48,6 +49,11 @@
             toggleAll(completed) {
                 this.todoItems.forEach(todo => todo.completed = completed);
             },
+        },
+        computed: {
+            completedTodos() {
+                return this.todoItems.filter(todo => todo.completed);
+            }
         }
     }
 </script>
