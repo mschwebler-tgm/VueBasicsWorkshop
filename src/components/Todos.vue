@@ -45,6 +45,13 @@
                 ],
             }
         },
+        watch: {
+            completedTodos() {
+                if (this.completedTodos.length === this.todoItems.length) {
+                    alert('All done!');
+                }
+            },
+        },
         methods: {
             toggleAll(completed) {
                 this.todoItems.forEach(todo => todo.completed = completed);
