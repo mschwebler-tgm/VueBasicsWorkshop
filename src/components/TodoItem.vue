@@ -8,6 +8,9 @@
             </label>
             <label :for="`todo-checkbox-${item.id}`" class="todo-description">{{ item.description }}</label>
         </div>
+        <div class="delete">
+            <img src="https://image.flaticon.com/icons/png/512/127/127758.png" alt="delete">
+        </div>
     </div>
 </template>
 
@@ -25,6 +28,7 @@
         padding: 10px;
         display: flex;
         align-items: center;
+        position: relative;
     }
 
     .todo-item.completed {
@@ -42,5 +46,24 @@
 
     .todo-description {
         color: darkgrey;
+    }
+
+    .delete {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        align-items: center;
+        padding: 0 10px;
+        cursor: pointer;
+    }
+
+    .todo-item:hover .delete {
+        display: flex;
+    }
+
+    .delete > img {
+        height: 15px;
     }
 </style>
