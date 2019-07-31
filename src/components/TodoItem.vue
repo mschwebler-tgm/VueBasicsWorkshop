@@ -8,7 +8,7 @@
             </label>
             <label :for="`todo-checkbox-${item.id}`" class="todo-description">{{ item.description }}</label>
         </div>
-        <div class="delete">
+        <div class="delete" @click="$emit('delete')">
             <img src="https://image.flaticon.com/icons/png/512/127/127758.png" alt="delete">
         </div>
     </div>

@@ -3,7 +3,10 @@
         <h1>Todo App</h1>
         <div>
             <progress :value="completedTodos.length" :max="todoItems.length" style="width: 100%;"></progress>
-            <todo-item :item="todoItem" v-for="todoItem in todoItems" :key="todoItem.id"></todo-item>
+            <todo-item v-for="todoItem in todoItems"
+                       :key="todoItem.id"
+                       :item="todoItem"
+                       @delete="deleteItem(todoItem)"></todo-item>
             <button @click="toggleAll(true)">Complete all</button>
             <button @click="toggleAll(false)">Uncheck all</button>
         </div>
@@ -12,6 +15,7 @@
 
 <script>
     import TodoItem from "./TodoItem";
+
     export default {
         name: 'Todos',
         components: {TodoItem},
@@ -56,6 +60,9 @@
             toggleAll(completed) {
                 this.todoItems.forEach(todo => todo.completed = completed);
             },
+            deleteItem(todoItem) {
+                this.todoItems = this.todoItems.filter(item => item.id !== todoItem.id);
+            }
         },
         computed: {
             completedTodos() {
@@ -81,7 +88,7 @@
         -webkit-border-radius: 5px;
         -moz-border-radius: 5px;
         border-radius: 5px;
-        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
         padding: 20px;
     }
 
