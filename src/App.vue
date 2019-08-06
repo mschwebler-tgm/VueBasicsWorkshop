@@ -1,8 +1,8 @@
 <template>
-    <v-app id="inspire">
-        <v-navigation-drawer v-model="drawer" app>
-            <v-list dense>
-                <v-list-item @click="doNothing">
+    <v-app>
+        <v-navigation-drawer v-model="drawer" clipped floating dark app :mobile-break-point="670">
+            <v-list dense app>
+                <v-list-item to="/home">
                     <v-list-item-action>
                         <v-icon>home</v-icon>
                     </v-list-item-action>
@@ -10,18 +10,15 @@
                         <v-list-item-title>Home</v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
-                <v-list-item @click="doNothing">
-                    <v-list-item-action>
-                        <v-icon>contact_mail</v-icon>
-                    </v-list-item-action>
+                <v-list-item v-for="route in routes" :key="route.path" :to="route.path">
                     <v-list-item-content>
-                        <v-list-item-title>Contact</v-list-item-title>
+                        <v-list-item-title>{{ route.name }}</v-list-item-title>
                     </v-list-item-content>
                 </v-list-item>
             </v-list>
         </v-navigation-drawer>
 
-        <v-app-bar app color="indigo" dark>
+        <v-app-bar color="indigo" app clipped-left dense dark>
             <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
             <v-toolbar-title>Application</v-toolbar-title>
         </v-app-bar>
@@ -31,7 +28,7 @@
                 <v-layout align-center
                           justify-center>
                     <v-flex text-center>
-                      <playground></playground>
+                        <router-view></router-view>
                     </v-flex>
                 </v-layout>
             </v-container>
@@ -43,17 +40,13 @@
 </template>
 
 <script>
-    import Playground from "./components/Playground";
+    import {navDrawerRoutes} from './router';
+
     export default {
         name: 'App',
-      components: {Playground},
-      data: () => ({
-            drawer: false,
+        data: () => ({
+            drawer: true,
+            routes: navDrawerRoutes,
         }),
-        methods: {
-            doNothing() {
-
-            }
-        }
     };
 </script>
