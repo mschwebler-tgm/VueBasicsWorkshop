@@ -1,28 +1,58 @@
 <template>
-    <div id="app">
-        <img alt="Vue logo" src="./assets/logo.png">
-        <HelloWorld></HelloWorld>
-    </div>
+    <v-app id="inspire">
+        <v-navigation-drawer v-model="drawer" app>
+            <v-list dense>
+                <v-list-item @click="doNothing">
+                    <v-list-item-action>
+                        <v-icon>home</v-icon>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                        <v-list-item-title>Home</v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
+                <v-list-item @click="doNothing">
+                    <v-list-item-action>
+                        <v-icon>contact_mail</v-icon>
+                    </v-list-item-action>
+                    <v-list-item-content>
+                        <v-list-item-title>Contact</v-list-item-title>
+                    </v-list-item-content>
+                </v-list-item>
+            </v-list>
+        </v-navigation-drawer>
+
+        <v-app-bar app color="indigo" dark>
+            <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+            <v-toolbar-title>Application</v-toolbar-title>
+        </v-app-bar>
+
+        <v-content>
+            <v-container fluid fill-height>
+                <v-layout align-center
+                          justify-center>
+                    <v-flex text-center>
+                        <v-icon>home</v-icon>
+                        Test
+                    </v-flex>
+                </v-layout>
+            </v-container>
+        </v-content>
+        <v-footer color="indigo" app>
+            <span class="white--text">&copy; 2019</span>
+        </v-footer>
+    </v-app>
 </template>
 
 <script>
-    import HelloWorld from './components/HelloWorld.vue'
-
     export default {
-        name: 'app',
-        components: {
-            HelloWorld
-        }
-    }
-</script>
+        name: 'App',
+        data: () => ({
+            drawer: false,
+        }),
+        methods: {
+            doNothing() {
 
-<style>
-    #app {
-        font-family: 'Avenir', Helvetica, Arial, sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-align: center;
-        color: #2c3e50;
-        margin-top: 60px;
-    }
-</style>
+            }
+        }
+    };
+</script>
