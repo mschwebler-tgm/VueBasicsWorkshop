@@ -30,8 +30,8 @@
             <v-container fluid fill-height>
                 <v-layout align-center
                           justify-center>
-                    <v-flex text-center>
-                      <playground></playground>
+                    <v-flex>
+                        <playground></playground>
                     </v-flex>
                 </v-layout>
             </v-container>
@@ -44,10 +44,11 @@
 
 <script>
     import Playground from "./components/Playground";
+
     export default {
         name: 'App',
-      components: {Playground},
-      data: () => ({
+        components: {Playground},
+        data: () => ({
             drawer: false,
         }),
         methods: {
