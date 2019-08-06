@@ -25,11 +25,17 @@
         </v-app-bar>
 
         <v-content>
-            <v-container fluid fill-height>
-                <v-layout align-center
+            <v-container fluid fill-height grid-list-xl>
+                <v-layout align-content-start
+                          column
                           justify-center>
-                    <v-flex text-center>
-                        <router-view></router-view>
+                    <v-flex shrink>
+                        <span class="display-2">{{ $route.name }}</span>
+                    </v-flex>
+                    <v-flex grow>
+                        <v-card class="pa-5 fill-height">
+                            <router-view></router-view>
+                        </v-card>
                     </v-flex>
                 </v-layout>
             </v-container>
