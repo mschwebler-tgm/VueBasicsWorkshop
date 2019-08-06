@@ -31,8 +31,7 @@
                 <v-layout align-center
                           justify-center>
                     <v-flex text-center>
-                        <v-icon>home</v-icon>
-                        Test
+                      <playground></playground>
                     </v-flex>
                 </v-layout>
             </v-container>
@@ -44,9 +43,11 @@
 </template>
 
 <script>
+    import Playground from "./components/Playground";
     export default {
         name: 'App',
-        data: () => ({
+      components: {Playground},
+      data: () => ({
             drawer: false,
         }),
         methods: {
